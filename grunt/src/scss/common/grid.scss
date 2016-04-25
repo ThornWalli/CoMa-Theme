@@ -1,0 +1,75 @@
+@mixin makeGridColumns($key, $index: 1) {
+
+  .grid-col-#{$key}-#{$index} {
+    float: left;
+    width: percentage($index / $grid-size);
+  }
+
+  @if (length($grid-sizes-key) >= index($grid-sizes-key, $key) + 1) {
+    //$keyNext: nth($grid-sizes-key, index($grid-sizes-key, $key) + 1);
+    @media (max-width: nth($grid-sizes-width, index($grid-sizes-key, $key) + 1)) {
+      .grid-col-offset-#{$key}-#{$index} {
+        margin-left: percentage($index / $grid-size);
+      }
+    }
+
+  } @else {
+    .grid-col-offset-#{$key}-#{$index} {
+      margin-left: percentage($index / $grid-size);
+    }
+  }
+
+  @if $index < $grid-size {
+
+    @include makeGridColumns($key, $index + 1);
+
+  }
+
+}
+
+@mixin makeGrid() {
+  [class*="grid-col-"] {
+    box-sizing: border-box;
+    padding-left: $grid-gutter-offset / 2;
+    padding-right: $grid-gutter-offset / 2;
+  }
+  .grid-wrapper {
+    @include clearfix();
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: $screen-lg-min;
+  }
+  .grid-row {
+    @include clearfix();
+    margin-left: -($grid-gutter-offset / 2);
+    margin-right: -($grid-gutter-offset / 2);
+  }
+  @each $key in $grid-sizes-key {
+    @media (min-width: nth($grid-sizes-width, index($grid-sizes-key, $key))) {
+      @include makeGridColumns($key);
+
+      .grid-col-#{$key}-left {
+        float: left;
+      }
+      .grid-col-#{$key}-right {
+        float: right;
+      }
+
+      .visible-#{$key} {
+        display: block;
+      }
+      .hidden-#{$key} {
+        display: none;
+      }
+      @each $key_ in $grid-sizes-key {
+        @if $key != $key_ {
+          .visible-#{$key_} {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include makeGrid();

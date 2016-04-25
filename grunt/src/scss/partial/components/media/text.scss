@@ -1,0 +1,12 @@
+@mixin Component_Media_Text($critical) {
+
+  @if $critical == false {
+
+    .partial[data-partial="components/media/text"] {
+
+
+    }
+
+  }
+
+}

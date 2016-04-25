@@ -1,0 +1,102 @@
+@mixin Component_Accordion($critical) {
+
+  .partial[data-partial="components/accordion-list/accordion"] {
+
+    @if $critical {
+
+      > input {
+        display: none;
+      }
+
+      border-bottom: solid #cccccc 1px;
+      &:last-child {
+        border-bottom-width: 0;
+      }
+
+      header {
+
+        label {
+
+          position: relative;
+
+          display: block;
+          padding: 10px 20px;
+          padding-left: 30px;
+
+          font-size: 14px;
+          font-weight: 600;
+          color: #666666;
+
+          transition: color .35s ease;
+
+          &:before {
+
+            position: absolute;
+            top: 10px;
+            left: 0px;
+
+            width: 30px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 10px;
+            color: #000000;
+
+            text-align: center;
+
+            @include font-icon();
+            content: $coma-theme-icon-arrow_right;
+            display: inline-block;
+            vertical-align: middle;
+
+            transition: transform .35s ease;
+
+          }
+
+        }
+
+      }
+
+      > input:checked + header > label {
+        &:before {
+          transform: rotate(90deg);
+        }
+      }
+
+      > div {
+        overflow-y: hidden;
+        max-height: 0;
+
+        > div {
+
+          padding-top: 10px;
+          padding-bottom: 20px;
+
+          .partial[data-partial="components/media"], .partial[data-partial^="components/media/"] {
+
+            @include TypoBasic($margin: 10px, $font-size: 14px);
+
+          }
+
+        }
+
+        padding-left: 20px;
+
+      }
+
+      > input:checked + header > label {
+        color: #333333;
+      }
+
+      > input:checked + header + div {
+
+        max-height: none;
+
+        > div {
+        }
+      }
+
+    }
+
+  }
+
+}

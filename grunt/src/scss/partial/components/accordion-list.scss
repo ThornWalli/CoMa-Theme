@@ -1,0 +1,13 @@
+@mixin Component_AccordionList($critical) {
+
+  .partial[data-partial="components/accordion-list"] {
+
+    @if $critical {
+
+      padding: 0 20px;
+
+    }
+
+  }
+
+}

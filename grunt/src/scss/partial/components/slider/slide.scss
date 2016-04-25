@@ -1,0 +1,58 @@
+@mixin Component_Slider_Slide($critical) {
+
+  $color-slider-slide-background: #ffffff;
+
+  .partial[data-partial="components/slider/slide"] {
+
+    @if $critical {
+
+    } @else {
+
+      margin: 0;
+      padding: 0;
+
+
+
+      position: relative;
+
+
+      picture, img {
+        display: block;
+        backface-visibility: hidden;
+      }
+      figcaption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: rgba(255,255,255,0.75);
+
+        width: 100%;
+
+        padding: 15px;
+
+        h3, p {
+          margin: 0;
+          margin-bottom: 5px;
+          padding: 0;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        h3 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+
+    }
+
+  }
+}
+
+
+

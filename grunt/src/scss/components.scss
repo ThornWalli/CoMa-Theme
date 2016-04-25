@@ -1,0 +1,49 @@
+@import "./partial/components/header.scss";
+@import "./partial/components/header/navigation.scss";
+
+@import "./partial/components/footer.scss";
+@import "./partial/components/footer/navigation.scss";
+@import "./partial/components/post-list.scss";
+@import "./partial/components/post-list/post.scss";
+@import "./partial/components/sidebar/menu.scss";
+@import "./partial/components/sidebar/post-list.scss";
+
+@import "./partial/components/media.scss";
+@import "./partial/components/media/video.scss";
+@import "./partial/components/media/image.scss";
+@import "./partial/components/media/text.scss";
+@import "./partial/components/media/code.scss";
+@import "./partial/components/media/slider.scss";
+
+@import "./partial/components/slider.scss";
+@import "./partial/components/slider/slide.scss";
+
+@import "./partial/components/accordion-list.scss";
+@import "./partial/components/accordion.scss";
+
+@include Component_Header($critical);
+@include Component_Header_Navigation($critical);
+
+@include Component_Footer($critical);
+@include Component_Footer_Navigation($critical);
+
+
+@include Component_PostList($critical);
+@include Component_PostList_Post($critical);
+
+@include Component_Sidebar_Menu($critical);
+@include Component_Sidebar_PostList($critical);
+
+
+@include Component_Media($critical);
+@include Component_Media_Video($critical);
+@include Component_Media_Image($critical);
+@include Component_Media_Text($critical);
+@include Component_Media_Code($critical);
+@include Component_Media_Slider($critical);
+
+@include Component_Slider($critical);
+@include Component_Slider_Slide($critical);
+
+@include Component_Accordion($critical);
+@include Component_AccordionList($critical);

@@ -1,0 +1,35 @@
+@mixin wp() {
+
+  body {
+
+    &.coma-edit-mode {
+
+      .grid-wrapper {
+
+        overflow: visible;
+
+      }
+
+    }
+
+  }
+
+  body.admin-bar {
+
+    .partial[data-partial="components/header/navigation"] > div {
+      top: 32px;
+      @media screen and (max-width: 782px) {
+        top: 46px;
+      }
+    }
+
+  }
+
+  .alignleft {
+    float: left;
+  }
+  .alignright {
+    float: right;
+  }
+
+}

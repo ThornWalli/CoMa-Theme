@@ -1,0 +1,108 @@
+@mixin ContainerResizer($critical) {
+
+  @if $critical {
+
+  } @else {
+
+    html.container-resizer-fullscreen {
+      overflow: hidden;
+    }
+
+    .container-resizer {
+
+      position: relative;
+
+      &.container-resizer-full {
+
+        display: block;
+
+        transform: none;
+
+        position: fixed !important;
+        top: 0;
+        left: 0;
+
+        z-index: 10000;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+      }
+
+      > .container-resizer-helper, &.container-resizer-full > .container-resizer-helper {
+
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        html.container-resizer-fullscreen & {
+          bottom: 20px;
+          left: 20px;
+          right: auto;
+        }
+
+      }
+
+      > .container-resizer-helper {
+        span {
+          display: block;
+          &:before {
+            @include font-icon();
+            content: $coma-theme-icon-fullscreen;
+          }
+        }
+      }
+
+      &:not(.container-resizer-full) {
+        > .container-resizer-helper {
+          span {
+
+            &:before {
+
+              cursor: pointer;
+
+              display: block;
+              color: #ffffff;
+
+              font-size: 16px;
+              line-height: 1;
+
+              padding: 5px 10px;
+
+            }
+
+            border-top-left-radius: 3px;
+            transition: background-color .35s ease;
+
+            background: rgba(0, 0, 0, 0.4);
+            &:hover {
+              background: rgba(0, 0, 0, 0.8);
+            }
+
+          }
+        }
+      }
+
+        &.container-resizer-full {
+          > .container-resizer-helper {
+
+            @extend .partial[data-partial="elements/touch-button"];
+            @extend .partial[data-partial="elements/touch-button/icon"];
+
+            span {
+              &:before {
+                content: $coma-theme-icon-unfullscreen;
+              }
+            }
+
+          }
+
+      }
+
+    }
+
+  }
+}
