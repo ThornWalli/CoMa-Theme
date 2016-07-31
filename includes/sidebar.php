@@ -1,26 +1,27 @@
 <?php
 
-if (\CoMaTheme\showSidebar()){
+if (\CoMaTheme\showSidebar()) {
 
-    ?>
+  ?>
 
-    <aside class="grid-col-xs-12 grid-col-md-8 grid-col-offset-md-4 grid-col-lg-3">
+  <aside class="grid-col-12-12 grid-col-sm-8-12 grid-col-md-3-12 grid-col-sm-offset-4-12 grid-col-md-offset-0-12">
+    <div class="grid-g">
 
-        <?php
+      <div class="grid-col-12-12 grid-col-sm-6-12 grid-col-md-12-12"><?php
 
-        \CoMa\Helper\Base::getArea('sidebar', '\CoMaTheme\Area\SideBar');
+//       echo \CoMa\Helper\Base::getArea('sidebar', '\CoMaTheme\Area\SideBar');
 
-        ?>
+        ?></div>
+      <div class="grid-col-12-12 grid-col-sm-6-12 grid-col-md-12-12"><?php
 
-        <?php
+        echo \CoMa\Helper\Base::getArea('static-sidebar', \CoMaTheme\Area\SideBar::class, true);
 
-        \CoMa\Helper\Base::getArea('static_sidebar', '\CoMaTheme\Area\SideBar', true);
+        ?></div>
 
-        ?>
+    </div>
+  </aside>
 
-    </aside>
-
-    <?php
+  <?php
 
 }
 

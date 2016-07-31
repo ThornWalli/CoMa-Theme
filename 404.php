@@ -11,7 +11,7 @@ get_header();
 	<main class="grid-col-md-8 grid-col-lg-9">
 		<?php
 
-		\CoMa\Helper\Base::getArea('404_main', '\CoMaTheme\Area\Main', true);
+		echo \CoMa\Helper\Base::getArea('404_main', '\CoMaTheme\Area\Main', true);
 
 		?>
 	</main>

@@ -1,0 +1,67 @@
+---
+slides:
+  -
+    image:
+      sources:
+        - {type: 'default', srcset: '../../assets/img/content/example_1.png'}
+  -
+    image:
+      sources:
+        - {type: 'default', srcset: '../../assets/img/content/example_2.png'}
+  -
+    image:
+      sources:
+        - {type: 'default', srcset: '../../assets/img/content/example_3.png'}
+  -
+    image:
+      sources:
+        - {type: 'default', srcset: '../../assets/img/content/example_4.png'}
+  -
+    image:
+      sources:
+        - {type: 'default', srcset: '../../assets/img/content/example_5.png'}
+  -
+    image:
+      sources:
+        - {type: 'default', srcset: '../../assets/img/content/example_6.png'}
+  -
+    image:
+      sources:
+        - {type: 'default', srcset: '../../assets/img/content/example_7.png'}
+  -
+    image:
+      sources:
+        - {type: 'default', srcset: '../../assets/img/content/example_8.png'}
+config:
+  pagination: true
+  arrows: true
+  loop: true
+  autoplay: 700
+  speed: 1200
+---
+<div class="controller partial swiper-container" data-controller="./partials/fragments/Slider"
+     data-partial="fragments/slider"
+  {{#if config.loop}} data-loop="{{config.loop}}"{{/if}}{{#if config.autoplay}}
+     data-autoplay="{{config.autoplay}}"{{/if}}{{#if config.speed}} data-speed="{{config.speed}}"{{/if}}>
+    <div class="swiper-wrapper">
+      {{#if area-content}}
+        {{#block "area"}}
+          {{{area-content}}}
+        {{/block}}
+      {{else}}
+        {{#each slides}}
+          {{{mixin "elements/slider/image" this }}}
+        {{/each}}
+      {{/if}}
+    </div>
+
+  {{#if config.pagination}}
+      <div class="swiper-pagination"></div>
+  {{/if}}
+
+  {{#if config.arrows}}
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+  {{/if}}
+
+</div>

@@ -1,7 +1,0 @@
-@import "partial/elements/touch-button.scss";
-@import "partial/elements/touch-button/menu.scss";
-@import "partial/elements/touch-button/icon.scss";
-
-@include Element_TouchButton($critical);
-@include Element_TouchButton_Menu($critical);
-@include Element_TouchButton_Icon($critical);

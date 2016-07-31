@@ -6,24 +6,24 @@
 
 if (\CoMa\Helper\Base::isEditMode()) {
 
-    foreach ($this->getChildrens() as $component) {
-        $component->render();
-    }
+   foreach ($this->getChildrens() as $component) {
+      $component->render();
+   }
 
 } else {
 
-    echo '<ul>';
+   echo '<ul>';
 
-    /*
-     * Rendern der Komponenten die dem Bereich zugeordnet sind.
-     */
-    foreach ($this->getChildrens() as $component) {
-        echo '<li>';
-        $component->render();
-        echo '</li>';
-    }
+   /*
+    * Rendern der Komponenten die dem Bereich zugeordnet sind.
+    */
+   foreach ($this->getChildrens() as $component) {
+      echo '<li>';
+      $component->render();
+      echo '</li>';
+   }
 
-    echo '</ul>';
+   echo '</ul>';
 
 }
 

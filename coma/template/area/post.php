@@ -8,60 +8,61 @@ $properties = $this->getProperties();
 
 if (count($this->getChildrens()) > 0) {
 
-    ?>
+   ?>
 
-    <section>
+   <section>
 
-        <?php
+      <?php
 
-        $headline = $properties[\CoMaTheme\FieldUtil::PROPERTY_HEADLINE_HEADLINE];
-        $subline = $properties[\CoMaTheme\FieldUtil::PROPERTY_HEADLINE_SUBLINE];
+      $headline = $properties[\CoMaTheme\FieldUtil::PROPERTY_HEADLINE];
+      $subline = $properties[\CoMaTheme\FieldUtil::PROPERTY_SUBLINE];
 
-        if ($headline || $subline) {
+      if ($headline || $subline) {
 
-            ?>
+         ?>
 
-            <header>
+         <header>
 
-                <div>
+            <div>
 
-                    <?php
+               <?php
 
-                    if ($properties[\CoMaTheme\FieldUtil::PROPERTY_HEADLINE_PRIMARY_HEADLINE]) {
-                        if ($headline) echo '<h1 class="headline">' . $headline . '</h1>';
-                        if ($subline) echo '<h2 class="subline">' . $subline . '</h2>';
-                    } else {
-                        if ($headline) echo '<h2 class="headline">' . $headline . '</h2>';
-                        if ($subline) echo '<h3 class="subline">' . $subline . '</h3>';
-                    }
+               if ($properties[\CoMaTheme\FieldUtil::PROPERTY_PRIMARY_HEADLINE]) {
+                  if ($headline) echo '<h1 class="headline">' . $headline . '</h1>';
+                  if ($subline) echo '<h2 class="subline">' . $subline . '</h2>';
+               } else {
+                  if ($headline) echo '<h2 class="headline">' . $headline . '</h2>';
+                  if ($subline) echo '<h3 class="subline">' . $subline . '</h3>';
+               }
 
-                    ?>
+               ?>
 
-                </div>
+            </div>
 
-            </header>
+         </header>
 
-            <?php
+         <?php
 
-        }
+      }
 
-        ?>
+      ?>
 
-        <div class="content area-content">
+      <!-- Set class "area-content" for CoMa. -->
+      <div class="content area-content">
 
-            <?php
+         <?php
 
-            foreach ($this->getChildrens() as $component) {
-                $component->render();
-            }
+         foreach ($this->getChildrens() as $component) {
+            $component->render();
+         }
 
-            ?>
+         ?>
 
-        </div>
+      </div>
 
-    </section>
+   </section>
 
-    <?php
+   <?php
 
 }
 

@@ -1,0 +1,27 @@
+---
+header:
+  headline: "Area Post Headline"
+  subline: "Area Post Subline"
+area-content: "no area content"
+---
+{{{def group="header" name="header" type="Headline"}}}
+<section class="partial {{{class}}}" data-partial="areas/post">
+
+  {{#if header}}
+    {{{mixin "elements/header" header group="header"}}}
+  {{/if}}
+
+    <!-- Set class "area-content" for CoMa. -->
+    <div class="content area-content">
+
+      {{#block "area-content"}}
+
+        {{#each area-content}}
+          {{{this}}}
+        {{/each}}
+
+      {{/block}}
+
+    </div>
+
+</section>

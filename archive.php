@@ -16,8 +16,8 @@ get_header();
     } ?>">
         <?php
 
-        \CoMa\Helper\Base::getArea('archive_main', '\CoMaTheme\Area\Main', true);
-        \CoMa\Helper\Base::getArea('static_area', '\CoMaTheme\Area\Main', true);
+        echo \CoMa\Helper\Base::getArea('archive-main', '\CoMaTheme\Area\Main', true);
+        echo \CoMa\Helper\Base::getArea('static-area', '\CoMaTheme\Area\Main', true);
 
         ?>
     </main>

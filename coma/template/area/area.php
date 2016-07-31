@@ -4,8 +4,8 @@
  * @type\CoMa\Base\Area $this
  */
 
-foreach($this->getChildrens() as $component) {
-    $component->render();
+foreach ($this->getChildrens() as $component) {
+   $component->render();
 }
 
 ?>

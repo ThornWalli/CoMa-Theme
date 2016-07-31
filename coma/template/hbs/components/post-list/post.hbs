@@ -1,0 +1,70 @@
+---
+
+header:
+  small-stage: false
+  headline: "Post headline"
+  subline: "Post subline"
+  picture:
+    sources:
+      - {type: 'default', srcset: '//dummyimage.com/992x480/333333/fff'}
+
+text: "<p>Nisi necessitatibus voluptatem occaecati quae dicta cupiditate! Phasellus, imperdiet, aliquam eaque fuga? Feugiat? Quam condimentum tenetur aperiam ab. Quasi quam. Recusandae volutpat incididunt ratione, possimus voluptate laoreet congue modi minim.</p>"
+
+date: "00:00 00.00.0000"
+with-link: true
+link:
+  class: "link"
+  url: "#link"
+  title: "More..."
+
+area-content: false
+
+---
+{{{def group="header" name="small-stage" type="CheckBox" title="Size" desc="Large or Small Stage"}}}
+{{{def group="header" name="picture" type="Picture" title="Picture"}}}
+{{{def group="header" name="header" type="Headline"}}}
+{{{def name="text" type="Editor" title="Text"}}}
+{{{def name="date" type="DateSelect" title="Date"}}}
+{{{def name="with-link" type="CheckBox" title="With Link" desc="Need for used Link"}}}
+{{{def name="link" type="Link" title="Link"}}}
+
+<article class="partial{{#if small-stage}} small-stage{{/if}}" data-partial="components/post-list/post">
+
+  {{#if header}}
+
+    {{#mixin "elements/header" header}}
+
+      {{#content "before"}}
+        {{#if picture}}
+          {{{mixin "agency-pkg-elements/picture" picture}}}
+        {{/if}}
+      {{/content}}
+
+      {{#content "after"}}
+      {{/content}}
+
+    {{/mixin}}
+
+  {{/if}}
+
+
+  {{#block "content"}}
+    {{{text}}}
+  {{/block}}
+
+  <p class="info">
+    {{#if date}}
+      <span class="date">{{{date}}}</span>
+    {{/if}}
+    {{#if with-link}}
+      {{{mixin "agency-pkg-elements/link" link}}}
+    {{/if}}
+  </p>
+
+  {{#block "area"}}
+    {{#if area-content}}
+      {{{area-content}}}
+    {{/if}}
+  {{/block}}
+
+</article>

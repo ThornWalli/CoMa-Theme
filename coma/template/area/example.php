@@ -7,8 +7,8 @@
 /*
  * Rendern der Komponenten die dem Bereich zugeordnet sind.
  */
-foreach($this->getChildrens() as $component) {
-    $component->render();
+foreach ($this->getChildrens() as $component) {
+   $component->render();
 }
 
 ?>

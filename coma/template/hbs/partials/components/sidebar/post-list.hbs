@@ -1,0 +1,33 @@
+---
+date: 00:00 00.00.0000
+items:
+  -
+    title: 'Post 1.'
+    url: '#post-1'
+  -
+    title: 'Post 2.'
+    url: '#post-2'
+  -
+    title: 'Post 3.'
+    url: '#post-3'
+---
+{{{def group="header" name="header" type="Headline"}}}
+{{{def name="text" type="Editor" title="Text"}}}
+{{{def group="settings" name="current-date" type="CheckBox" title="Current Date"}}}
+<section class="partial" data-partial="components/sidebar/post-list">
+  {{{mixin "elements/header" header}}}
+  {{{text}}}
+  {{#mixin "fragments/menu"}}
+      {{#content "content"}}
+        {{#each ../items}}
+            <li class="date">
+              {{{date}}}
+            </li>
+        <li>
+          {{{mixin "elements/link" link}}}
+        {{/each}}
+      </li>
+      {{/content}}
+  {{/mixin}}
+  {{{area-content}}}
+</section>
